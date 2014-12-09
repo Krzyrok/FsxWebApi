@@ -9,7 +9,6 @@
             var configuration = new HttpSelfHostConfiguration("http://localhost:8080");
             WebApiConfig.Register(configuration);
             WebApiStarter.StartServer(configuration);
-			// git tests
         }
     }
 }
