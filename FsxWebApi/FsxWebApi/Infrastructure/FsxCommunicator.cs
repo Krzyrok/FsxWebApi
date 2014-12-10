@@ -12,22 +12,27 @@
         private bool _receivedMessage = false;
         private PlaneData _planeData;
 
-        public FsxCommunicator()
-        {
-            _simConnect = FsxFactory.GetSimConnectObject(this);
-        }
-
         public PlaneData GetLocation()
         {
             if (_simConnect == null)
                 _simConnect = FsxFactory.GetSimConnectObject(this);
+
+            if (_simConnect == null)
+                return null;
 
             _simConnect.RequestDataOnSimObjectType(DataRequest.FromBrowser, Definition.Plane, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
             
             // ReceiveMessage must be called to trigger the events. 
             do
             {
-                _simConnect.ReceiveMessage();
+                try
+                {
+                    _simConnect.ReceiveMessage();
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             } while (!_receivedMessage);
 
             _receivedMessage = false;

@@ -9,9 +9,16 @@
         private readonly FsxManager _fsxManager = new FsxManager();
 
         // GET: api/Plane
-        public PlaneData Get()
+        public IHttpActionResult Get()
         {
-            return _fsxManager.GetCurrentPlaneData();
+            //return ActionRes;
+            PlaneData planeData = _fsxManager.GetCurrentPlaneData();
+
+            if (planeData == null)
+            {
+                return NotFound();
+            }
+            return Ok(planeData);
         }
 
         // POST: api/Plane
