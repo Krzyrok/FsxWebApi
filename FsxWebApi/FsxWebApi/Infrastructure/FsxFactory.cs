@@ -24,7 +24,7 @@
             }
             catch (COMException)
             {
-                // do we need anything for error handling?
+                // exception handling
             }
 
             return null;
