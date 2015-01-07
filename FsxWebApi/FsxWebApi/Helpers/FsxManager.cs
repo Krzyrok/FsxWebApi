@@ -5,7 +5,7 @@
 
     public class FsxManager
     {
-        private readonly FsxCommunicator _fsxCommunicator = new FsxCommunicator();
+        private readonly FsxCommunicator _fsxCommunicator = new FsxCommunicator(new Logger());
 
         public PlaneData GetCurrentPlaneData()
         {

@@ -3,15 +3,22 @@
     using System;
     using FsxConfig;
     using FsxConfig.Enums;
+    using Interfaces;
     using Microsoft.FlightSimulator.SimConnect;
     using Model;
 
     public class FsxCommunicator
     {
+        private readonly ILogger _logger;
         // SimConnect object
         private SimConnect _simConnect;
         private bool _receivedMessage = false;
         private PlaneData _planeData;
+
+        public FsxCommunicator(ILogger logger)
+        {
+            _logger = logger;
+        }
 
         public PlaneData GetLocation()
         {
