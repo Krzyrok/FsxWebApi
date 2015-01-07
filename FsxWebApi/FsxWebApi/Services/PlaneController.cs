@@ -24,9 +24,11 @@
         }
 
         // POST: api/Plane
-        public void Post(Location newLocation)
+        public IHttpActionResult Post(Location newLocation)
         {
             // Pass the values to the FSX
+
+            return Ok();
         }
     }
 }
