@@ -42,14 +42,14 @@
                 simconnect.OnRecvException += fsxCommunicator.Fsx_ExceptionEventHandler;
 
                 // getting data
-                // define a data structure for getting plane informations
+                // define a data structure for plane informations
                 simconnect.AddToDataDefinition(Definition.Plane, "Plane Latitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Plane, "Plane Longitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Plane, "Plane Altitude", "feet", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Plane, "Fuel Tank Center Quantity", "gallons", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Plane, "Ground Velocity", "meters per second", SIMCONNECT_DATATYPE.FLOAT32, 0.0f, SimConnect.SIMCONNECT_UNUSED); ;
 
-                // registering plane struct in simconnect
+                // registering plane structure in simconnect
                 simconnect.RegisterDataDefineStruct<PlaneDataStruct>(Definition.Plane);
 
                 // catch a simobject after data request
@@ -57,10 +57,13 @@
 
 
                 // updating data
-                // define a data structure for getting plane informations
+                // define a data structure for plane informations
                 simconnect.AddToDataDefinition(Definition.Location, "Plane Latitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Location, "Plane Longitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Location, "Plane Altitude", "feet", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+
+                // registering location structure in simconnect
+                simconnect.RegisterDataDefineStruct<LocationStruct>(Definition.Location);
             }
             catch (COMException)
             {
