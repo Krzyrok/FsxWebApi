@@ -115,7 +115,7 @@
     <Compile Include="Infrastructure\Enums\DataRequest.cs" />
     <Compile Include="Infrastructure\Enums\Definition.cs" />
     <Compile Include="Infrastructure\FsxCommunicator.cs" />
-    <Compile Include="Controller\FsxManager.cs" />
+    <Compile Include="Helpers\FsxManager.cs" />
     <Compile Include="Infrastructure\FsxFactory.cs" />
     <Compile Include="Infrastructure\PlaneDataStruct.cs" />
     <Compile Include="Model\Location.cs" />

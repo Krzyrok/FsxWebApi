@@ -1,4 +1,4 @@
-﻿namespace FsxWebApi.Controller
+﻿namespace FsxWebApi.Helpers
 {
     using Infrastructure;
     using Model;
