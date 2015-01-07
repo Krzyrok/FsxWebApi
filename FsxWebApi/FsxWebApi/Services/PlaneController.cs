@@ -5,7 +5,7 @@
     using Model;
     using System.Web.Http;
 
-    [EnableCors(origins: "http://localhost:26759", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PlaneController : ApiController
     {
         private readonly FsxManager _fsxManager = new FsxManager();
