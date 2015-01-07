@@ -26,7 +26,10 @@
                 _simConnect = FsxFactory.GetSimConnectObject(this);
 
             if (_simConnect == null)
-                return null;
+            {
+                _logger.Log("Couldn't connect to the FSX.");
+                return null;                
+            }
 
             _simConnect.RequestDataOnSimObjectType(DataRequest.FromBrowser, Definition.Plane, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
             
@@ -46,11 +49,6 @@
             _receivedMessage = false;
 
             return _planeData;
-        }
-
-        public void CloseConnection()
-        {
-            CloseFsxConnection();
         }
 
         public void Fsx_ReceiveDataEventHandler(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE fsxData)
@@ -88,11 +86,13 @@
         public void Fsx_UserClosedFsxEventHandler(SimConnect sender, SIMCONNECT_RECV data)
         {
             CloseFsxConnection();
+            _logger.Log("User has closed FSX.");
         }
 
         public void Fsx_ExceptionEventHandler(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data)
         {
             // handle exceptions (save to file/display message)
+            _logger.Log("Error during connection with FSX.");
         }
 
 
