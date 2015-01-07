@@ -1,4 +1,4 @@
-﻿namespace FsxWebApi.Infrastructure
+﻿namespace FsxWebApi.Infrastructure.FsxConfig
 {
     using System.Runtime.InteropServices;
 

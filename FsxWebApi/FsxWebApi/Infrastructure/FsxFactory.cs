@@ -3,7 +3,8 @@
     using System;
     using System.Diagnostics;
     using System.Runtime.InteropServices;
-    using Enums;
+    using FsxConfig;
+    using FsxConfig.Enums;
     using Microsoft.FlightSimulator.SimConnect;
 
     public static class FsxFactory

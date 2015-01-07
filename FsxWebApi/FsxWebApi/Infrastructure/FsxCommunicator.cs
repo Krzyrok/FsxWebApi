@@ -1,7 +1,8 @@
 ﻿namespace FsxWebApi.Infrastructure
 {
     using System;
-    using Enums;
+    using FsxConfig;
+    using FsxConfig.Enums;
     using Microsoft.FlightSimulator.SimConnect;
     using Model;
 

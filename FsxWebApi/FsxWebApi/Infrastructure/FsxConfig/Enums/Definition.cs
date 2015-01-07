@@ -1,4 +1,4 @@
-﻿namespace FsxWebApi.Infrastructure.Enums
+﻿namespace FsxWebApi.Infrastructure.FsxConfig.Enums
 {
     enum Definition
     {
