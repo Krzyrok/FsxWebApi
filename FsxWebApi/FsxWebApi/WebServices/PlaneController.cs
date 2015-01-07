@@ -1,10 +1,9 @@
-﻿namespace FsxWebApi.Services
+﻿namespace FsxWebApi.WebServices
 {
+    using System.Web.Http;
     using System.Web.Http.Cors;
     using Controller;
-    using Infrastructure;
     using Model;
-    using System.Web.Http;
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PlaneController : ApiController
