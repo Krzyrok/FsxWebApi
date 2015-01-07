@@ -1,5 +1,6 @@
-﻿namespace FsxWebApi.Infrastructure
+﻿namespace FsxWebApi.Controller
 {
+    using Infrastructure;
     using Model;
 
     public class FsxManager
