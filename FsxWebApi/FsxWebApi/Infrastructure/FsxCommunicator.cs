@@ -20,16 +20,10 @@
             _logger = logger;
         }
 
-        public PlaneData GetLocation()
+        public PlaneData GetPlaneData()
         {
-            if (_simConnect == null)
-                _simConnect = FsxFactory.GetSimConnectObject(this);
-
-            if (_simConnect == null)
-            {
-                _logger.Log("Couldn't connect to the FSX.");
-                return null;                
-            }
+            if (!IsConnectedToFsx()) 
+                return null;
 
             _simConnect.RequestDataOnSimObjectType(DataRequest.FromBrowser, Definition.Plane, 0, SIMCONNECT_SIMOBJECT_TYPE.USER);
             
@@ -49,6 +43,21 @@
             _receivedMessage = false;
 
             return _planeData;
+        }
+
+        public bool SetPlaneLocation(Location newLocation)
+        {
+            if (!IsConnectedToFsx())
+                return false;
+
+            LocationStruct locationStructForFsx;
+            locationStructForFsx.Altitude = newLocation.Altitude;
+            locationStructForFsx.Latitude = newLocation.Latitude;
+            locationStructForFsx.Longitude = newLocation.Longitude;
+
+            _simConnect.SetDataOnSimObject(Definition.Location, SimConnect.SIMCONNECT_OBJECT_ID_USER, SIMCONNECT_DATA_SET_FLAG.DEFAULT, locationStructForFsx);
+
+            return true;
         }
 
         public void Fsx_ReceiveDataEventHandler(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE fsxData)
@@ -95,6 +104,18 @@
             _logger.Log("Error during connection with FSX.");
         }
 
+        private bool IsConnectedToFsx()
+        {
+            if (_simConnect == null)
+                _simConnect = FsxFactory.GetSimConnectObject(this);
+
+            if (_simConnect == null)
+            {
+                _logger.Log("Couldn't connect to the FSX.");
+                return false;
+            }
+            return true;
+        }
 
         private void CloseFsxConnection()
         {

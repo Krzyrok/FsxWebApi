@@ -9,14 +9,14 @@
 
         public PlaneData GetCurrentPlaneData()
         {
-            PlaneData planeData = _fsxCommunicator.GetLocation();
+            PlaneData planeData = _fsxCommunicator.GetPlaneData();
 
             return planeData;
         }
 
-        public void SetNewPlaneLocation(Location planeLocation)
+        public bool SetNewPlaneLocation(Location planeLocation)
         {
-            
+            return _fsxCommunicator.SetPlaneLocation(planeLocation);
         }
     }
 }

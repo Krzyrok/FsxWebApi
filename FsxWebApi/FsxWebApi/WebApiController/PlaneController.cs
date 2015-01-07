@@ -26,9 +26,12 @@
         public IHttpActionResult Post(Location newLocation)
         {
             // Pass the values to the FSX
-            _fsxManager.SetNewPlaneLocation(newLocation);
+            if (_fsxManager.SetNewPlaneLocation(newLocation))
+            {
+                return Ok();
+            }
 
-            return Ok();
+            return NotFound();
         }
     }
 }
