@@ -2,6 +2,7 @@
 {
     enum Definition
     {
-        Plane
+        Plane,
+        Location
     }
 }

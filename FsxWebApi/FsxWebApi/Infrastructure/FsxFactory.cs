@@ -41,6 +41,7 @@
                 // listen to exceptions
                 simconnect.OnRecvException += fsxCommunicator.Fsx_ExceptionEventHandler;
 
+                // getting data
                 // define a data structure for getting plane informations
                 simconnect.AddToDataDefinition(Definition.Plane, "Plane Latitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
                 simconnect.AddToDataDefinition(Definition.Plane, "Plane Longitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
@@ -51,8 +52,15 @@
                 // registering plane struct in simconnect
                 simconnect.RegisterDataDefineStruct<PlaneDataStruct>(Definition.Plane);
 
-                // catch a simobject data request
+                // catch a simobject after data request
                 simconnect.OnRecvSimobjectDataBytype += fsxCommunicator.Fsx_ReceiveDataEventHandler;
+
+
+                // updating data
+                // define a data structure for getting plane informations
+                simconnect.AddToDataDefinition(Definition.Location, "Plane Latitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                simconnect.AddToDataDefinition(Definition.Location, "Plane Longitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                simconnect.AddToDataDefinition(Definition.Location, "Plane Altitude", "feet", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
             }
             catch (COMException)
             {
