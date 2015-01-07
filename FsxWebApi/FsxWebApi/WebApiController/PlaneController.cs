@@ -13,7 +13,6 @@
         // GET: api/Plane
         public IHttpActionResult Get()
         {
-            //return ActionRes;
             PlaneData planeData = _fsxManager.GetCurrentPlaneData();
 
             if (planeData == null)
@@ -27,6 +26,7 @@
         public IHttpActionResult Post(Location newLocation)
         {
             // Pass the values to the FSX
+            _fsxManager.SetNewPlaneLocation(newLocation);
 
             return Ok();
         }

@@ -6,11 +6,10 @@
     // Sequential - position of field (in the struct) is connected to the position in memory
     // Pack - minimum size of the field (in bytes)
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
-    public struct PlaneDataStruct
+    public struct LocationStruct
     {
-        public LocationStruct Location;
-        public double Fuel;
-        public float Speed;
-        
-    };
+        public double Latitude;
+        public double Longitude;
+        public double Altitude;
+    }
 }

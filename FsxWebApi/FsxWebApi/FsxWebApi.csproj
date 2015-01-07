@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\WebApiStarter.cs" />
+    <Compile Include="Infrastructure\FsxConfig\LocationStruct.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Infrastructure\FsxConfig\Constants.cs" />

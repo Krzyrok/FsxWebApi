@@ -13,5 +13,10 @@
 
             return planeData;
         }
+
+        public void SetNewPlaneLocation(Location planeLocation)
+        {
+            
+        }
     }
 }
