@@ -79,7 +79,8 @@
                     {
                         FuelLevel = userPlaneData.Fuel,
                         Speed = userPlaneData.Speed,
-                        Location = location
+                        Location = location,
+                        EngineElapsedTime = userPlaneData.EngineElapsedTime
                     };
 
                     break;

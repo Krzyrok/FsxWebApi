@@ -10,7 +10,7 @@
     {
         public LocationStruct Location;
         public double Fuel;
+        public double EngineElapsedTime; 
         public float Speed;
-        
     };
 }

@@ -13,5 +13,8 @@
 
         [DataMember(Name = "location")]
         public Location Location { get; set; }
+
+        [DataMember(Name = "engine_elapsed_time")]
+        public double EngineElapsedTime { get; set; }
     }
 }
