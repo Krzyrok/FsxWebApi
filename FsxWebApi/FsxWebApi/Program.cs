@@ -6,7 +6,7 @@
     {
         static void Main(string[] args)
         {
-            var configuration = new HttpSelfHostConfiguration("http://localhost:8080");
+            var configuration = new HttpSelfHostConfiguration("http://localhost:8045");
             WebApiConfig.Register(configuration);
             WebApiStarter.StartServer(configuration);
         }
