@@ -10,7 +10,7 @@
     {
         private readonly FsxManager _fsxManager = new FsxManager();
 
-        // GET: api/Plane
+        // GET: api/Plane another changes
         public IHttpActionResult Get()
         {
             PlaneData planeData = _fsxManager.GetCurrentPlaneData();
